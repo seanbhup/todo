@@ -1,8 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /*text-align:center;*/
+    animation: color-change 30s infinite;
+  /*padding: 50px;*/
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  background-color:#7FD1B9;
+  /*color:#DE6E4B;*/
+  color: black;
+  font-family: 'Exo 2', sans-serif;
+  /*display:inline-block;*/
+
 }
 
-a {
-  color: #00B7FF;
+
+
+@keyframes color-change {
+    0%   {background-color:#7FD1B9;}
+    25%  {background-color:#FFC09F;}
+    50%  {background-color:#FFEE93;}
+    75%  {background-color:#258EA6;}
+    100%  {background-color:#7FD1B9}
 }
+
+.form-group{
+    padding: 50px;
+}
+
+.task-text{
+    animation: text-skew 2s infinite;
+    font-size: 30px;
+    transform: skewX(27deg);
+    transform: skewY(19deg);
+}
+
+@keyframes text-skew {
+    0%   {transform: skewX(27deg);}
+    25%  {transform: skewX(31deg);}
+    50%  {transform: skewX(35deg);}
+    75%  {transform: skewX(31deg);}
+    100%  {transform: skewX(27deg);}

@@ -1,0 +1,23 @@
+extends layout
+
+
+block content
+
+    .container#main-wrapper
+        .row
+            form.form-inline(action="/edit/#{task.id}" method="post")
+                .form-group
+                    label.sr-only New Task
+                    .input-group
+                        input.form-control.input(type="text" placeholder="New Task"  name="newTaskString" value="#{task.task_name}")
+                    .input-group
+                        input.form-control.input(type="text" placeholder="Task Date Deadline"  name="newTaskDate" value="#{task.task_date}")
+                button.btn.btn-primary(type="submit") Edit Task 
+        
+                                
+                        
+                       
+                
+                 
+  
+  

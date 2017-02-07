@@ -1,5 +1,39 @@
 extends layout
 
+
 block content
-  h1= title
-  p Welcome to #{title}
+
+    .container#main-wrapper
+        .row
+            form.form-inline(action="/addNew" method="post")
+                .form-group
+                    label.sr-only New Task
+                    .input-group
+                        input.form-control.input(type="text" placeholder="New Task"  name="newTaskString")
+                    .input-group
+                        input.form-control.input(type="text" placeholder="Task Date Deadline"  name="newTaskDate")
+                button.btn.btn-primary(type="submit") Add New Task 
+        .row
+            table.table.table-bordered.table-striped
+                tr
+                    th.table-header Task
+                    th.table-header Deadline
+                    th.table-header Edit
+                    th.table-header Delete
+                - if(taskArray.length === 0)
+                    tr
+                        td.task-text Your Task list is currently empty. Add a task and get busy
+                - else 
+                    - for (task of taskArray) 
+                        tr
+                            td= task.task_name
+                            td= task.task_date
+                            td: a(href="/edit/#{task.id}") Edit
+                            td: a(href="/delete/#{task.id}") Delete
+                                
+                        
+                       
+                
+                 
+  
+  
