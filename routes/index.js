@@ -14,11 +14,16 @@ connection.connect();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    // taskArray = [];
+
+    var msg = req.query.msg;
+    if(msg === 'updated'){
+        msg = "Your post has been updated"
+    }else if(msg==="added"){
+        msg = "Your task has been added"
+    };
     var selectQuery = "Select * FROM tasks";
     connection.query(selectQuery, (error,results,field)=>{
-        // res.json(results);
-        res.render('index', {taskArray: results});
+        res.render('index', {taskArray: results, msg: msg});
     });
 });
 
@@ -36,6 +41,9 @@ router.post("/addNew", (req,res,next)=>{
 });
 // ---------------EDIT GET-----------------
 router.get("/edit/:id", (req,res,next)=>{
+
+
+
     var selectQuery = "SELECT * from tasks WHERE id="+req.params.id;
 
     connection.query(selectQuery, (error,results,fields)=>{
@@ -64,16 +72,19 @@ router.post("/edit/:id", (req,res,next)=>{
     var taskDate = req.body.newTaskDate;
     var updateQuery = "UPDATE tasks SET task_name='"+newTask+"', task_date='"+taskDate+"'WHERE ID="+id;
 
-    res.send(updateQuery);
+    connection.query(updateQuery, (error,results,fields)=>{
+        if (error) throw error;
+        res.redirect("/?msg=updated");
+    });
+    // res.send(updateQuery);
 });
 // ---------------DELETE GET-----------------
 router.get("/delete/:id", (req,res,next)=>{
-    var selectQuery = "SELECT * from tasks WHERE id="+req.params.id;
-
-
-});
-// ---------------DELETE POST-----------------
-router.post("/delete/:id", (req,res,next)=>{
+    var deleteQuery = "DELETE FROM tasks WHERE id="+req.params.id;
+    connection.query(deleteQuery, (error,results,fields)=>{
+        if(error) throw error;
+        res.redirect("/");
+    });
     // res.send(req.params.id);
 });
 

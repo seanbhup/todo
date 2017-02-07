@@ -3,8 +3,13 @@ extends layout
 
 block content
 
+
+    
+
     .container#main-wrapper
         .row
+            -if (msg)
+                h3= msg
             form.form-inline(action="/addNew" method="post")
                 .form-group
                     label.sr-only New Task
@@ -29,7 +34,7 @@ block content
                             td= task.task_name
                             td= task.task_date
                             td: a(href="/edit/#{task.id}") Edit
-                            td: a(href="/delete/#{task.id}") Delete
+                            td.delete-button: a(href="/delete/#{task.id}") Delete
                                 
                         
                        
