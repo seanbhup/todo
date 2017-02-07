@@ -2,11 +2,13 @@ body {
     /*text-align:center;*/
     animation: color-change 30s infinite;
   /*padding: 50px;*/
-  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color:#7FD1B9;
   /*color:#DE6E4B;*/
   color: black;
-  font-family: 'Exo 2', sans-serif;
+  /*font-family: 'Bungee Hairline', cursive;*/
+  /*font-family: 'Audiowide', cursive;*/
+  font-size: 20px;
   /*display:inline-block;*/
 
 }
