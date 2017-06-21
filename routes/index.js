@@ -15,6 +15,7 @@ connection.connect();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
+
     var msg = req.query.msg;
     if(msg === 'updated'){
         msg = "Your post has been updated"
@@ -67,6 +68,7 @@ router.get("/edit/:id", (req,res,next)=>{
 });
 // ---------------EDIT POST-----------------
 router.post("/edit/:id", (req,res,next)=>{
+    console.log(req.params,req.body)
     var id = req.params.id;
     var newTask = req.body.newTaskString;
     var taskDate = req.body.newTaskDate;
