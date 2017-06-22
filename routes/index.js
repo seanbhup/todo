@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var config = require("../config/config");
-var mysql      = require('mysql');
+var mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : config.host,
     user     : config.userName,
